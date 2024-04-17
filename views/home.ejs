@@ -2,12 +2,74 @@
 <html lang="en">
 <head>
     <style>
-        body:{
+        body{
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             display: flex;
             flex-direction: column;
+            /* justify-content: center; */
+            align-items: center;
+            height: 100vh;
+            background: radial-gradient(ellipse at -15% -10%,rgb(91, 211, 247,.7) 10%,rgba(239, 166, 206, 0.18) 40%,rgba(12, 67, 247, 0.28) 100%);
+            transition: .5s all;
+            overflow: hidden;
+            h1{
+                font-size: 7rem;
+                /* padding-top: 8vh; */
+                background-clip: text;
+                -webkit-background-clip: text;
+                color: transparent;
+                background-image: url("https://images.unsplash.com/photo-1541701494587-cb58502866ab?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+                
+            }
+           
+            input{
+                padding: .5rem;
+                padding-left: 1rem;
+                width: 40vw;
+                font-size: 1rem;
+                margin: 2vh 0;
+                outline: none;
+                border: none;
+                box-shadow: 5px -5px 100px rgb(1, 128, 205);
+                border-radius: 20px;
+                background: rgba(255, 255, 255, 0);
+                color: rgb(1, 128, 205);
+
+
+            }
+            label{
+                font-size: 1.1rem;
+                font-family: "Poppins", sans-serif;
+                margin-left: .5vw;
+            }
+           .generatedURL{
+            display: flex;
             justify-content: center;
             align-items: center;
+            h4{
+                font-size: 1rem;
+                font-weight: lighter;
+            }
+           }
+           .submit-btn{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 1rem;
+            button{
+                font-size: 1.2rem;
+                color: white;
+                background-color: rgb(1, 137, 207);
+                padding: .65rem 2.5rem;
+                border: none;
+                border-radius: 20px 0px 20px 0px;
+                transition: border-radius .5s, box-shadow .5s;
+            }
+            button:hover{
+                border-radius: 0px 20px 0px 20px;
+                box-shadow: 5px 10px 20px rgb(255, 0, 34);
+            }
+           }
 
         }
     </style>
@@ -16,16 +78,19 @@
     <title>URL Shortener</title>
 </head>
 <body>
-   <h1>URL Shortener</h1>
-   <div>
-    <form method="POST" action="/url">
-        <label>Enter Your Original URL</label>
-        <input type="text"
-        name="url" placeholder="https://example.com" required>
-        <button type="submit">Generate </button>
-    </form>
-    
-   </div>
-
+    <h1>URL Shortener</h1>
+    <% if (locals.id) { %>
+         <h4 class="generatedURL">URL Generated :&nbsp;&nbsp;<p style="color: red;">http://localhost:8001/url/<%= id%></p></h4>
+    <% } %> 
+    <div>
+     <form method="POST" action="/url">
+         <label>Enter Your Original URL</label><br />
+         <input type="text"
+         name="url" placeholder="https://example.com" required class="input">
+         <div class="submit-btn"><button type="submit">Generate </button></div>
+     </form>
+     
+    </div>
+ 
 </body>
 </html>

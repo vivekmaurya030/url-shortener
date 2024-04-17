@@ -21,7 +21,7 @@ app.use("/url", urlRoute);
 
 app.use("/",staticRoute);
 
-app.get("/:shortId", async (req, res) => {
+app.get("/url/:shortId", async (req, res) => {
   const shortId = req.params.shortId;
   const entry = await URL.findOneAndUpdate(
     {
@@ -36,7 +36,7 @@ app.get("/:shortId", async (req, res) => {
     }
   );
 
-  // res.redirect(entry.redirectURL);
+  res.redirect(entry.redirectURL);
 });
 
 app.listen(PORT, () => console.log(`Server Started at PORT: ${PORT}`));

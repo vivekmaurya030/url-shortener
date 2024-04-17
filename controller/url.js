@@ -11,8 +11,10 @@ await URL.create({
     visitedHistory: [],
 
 })
-return res.json({id: shortID })
-}
+return res.render("home",{
+    id: shortID,
+});
+};
 
 // async function handleGetShortUrl(req,res){
 //     const  shortId = req.params.shortId;
