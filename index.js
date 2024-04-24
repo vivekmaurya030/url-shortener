@@ -6,7 +6,7 @@ const cookieParser = require("cookie-parser");
 const {restrictToLoggedinUserOnly, checkAuth} = require("./middlewares/auth");
 
 const app = express();
-const PORT = 8001;
+const PORT = process.env.PORT || 8001;
 
 const urlRoute = require("./routes/url");
 const staticRoute = require("./routes/staticRouter");
