@@ -8,10 +8,12 @@
             flex-direction: column;
             /* justify-content: center; */
             align-items: center;
-            height: 100vh;
+            height: 100%;
+            background-attachment: fixed;
+
             background: radial-gradient(ellipse at -15% -10%,rgb(91, 211, 247,.7) 10%,rgba(239, 166, 206, 0.18) 40%,rgba(12, 67, 247, 0.28) 100%);
             transition: .5s all;
-            overflow: hidden;
+            /* overflow: hidden; */
             h1{
                 font-size: 7rem;
                 /* padding-top: 8vh; */
@@ -87,7 +89,7 @@
          <label>Enter Your Original URL</label><br />
          <input type="text"
          name="url" placeholder="https://example.com" required class="input">
-         <div class="submit-btn"><button type="submit">Generate </button></div>
+         <div class="submit-btn"><a href="/url"><button type="submit">Generate </button></a></div>
      </form>
      <ul>
         <% urls.forEach(function(url) { %>
