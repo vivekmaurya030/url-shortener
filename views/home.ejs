@@ -80,7 +80,7 @@
 <body>
     <h1>URL Shortener</h1>
     <% if (locals.id) { %>
-         <h4 class="generatedURL">URL Generated :&nbsp;&nbsp;<p style="color: red;">http://localhost:8001/url/<%= id%></p></h4>
+         <h4 class="generatedURL">URL Generated :&nbsp;&nbsp;<p style="color: red;">https://url-shortener-m1rw.onrender.com/url/<%= id%></p></h4>
     <% } %> 
     <div>
      <form method="POST" action="/url">
@@ -89,7 +89,11 @@
          name="url" placeholder="https://example.com" required class="input">
          <div class="submit-btn"><button type="submit">Generate </button></div>
      </form>
-     
+     <ul>
+        <% urls.forEach(function(url) { %>
+           <li> ShortId:<%= url.shortId %>&nbsp;&nbsp; Redirect To:<a href="<%= url.redirectURL %>"><%= url.redirectURL %></a></li>
+        <% }); %> 
+       </ul>
     </div>
  
 </body>
