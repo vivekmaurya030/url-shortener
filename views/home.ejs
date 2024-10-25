@@ -114,7 +114,7 @@
 <body>
     <h1>URL Shortener</h1>
     <% if (locals.id) { %>
-         <h4 class="generatedURL">URL Generated :&nbsp;&nbsp;<p style="color: red;">https://url-shortener-m1rw.onrender.com/url/<%= id%></p></h4>
+         <h4 class="generatedURL">URL Generated :&nbsp;&nbsp;<p style="color: red;">https://url-shortener-eaum.onrender.com/url/<%= id%></p></h4>
     <% } %> 
     <div>
      <form method="POST" action="/url">
@@ -125,7 +125,7 @@
      </form>
      <ul>
         <% urls.forEach(function(url) { %>
-           <li class="list"><span class="span1">Short Id: <b><%= url.shortId %></b></span><span class="span2">link:<a target="_blank" href="<%= url.redirectURL %>"><%= "http://localhost:8001/" + url.shortId %></a></span></li>
+           <li class="list"><span class="span1">Short Id: <b><%= url.shortId %></b></span><span class="span2">link:<a target="_blank" href="<%= url.redirectURL %>"><%= "http://localhost:${process.env.PORT}/" + url.shortId %></a></span></li>
         <% }); %> 
        </ul>
     </div>
