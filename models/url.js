@@ -16,7 +16,7 @@ const urlSchema = new mongoose.Schema({
         ref: "users",
     }
 },{timestamps: true}
-);
+);  
 
 const URL = mongoose.model("url",urlSchema);
 

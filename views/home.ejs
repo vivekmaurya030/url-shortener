@@ -2,14 +2,22 @@
 <html lang="en">
 <head>
     <style>
+        *{
+            margin: 0;
+            padding: 0;
+            
+        }
         body{
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             display: flex;
             flex-direction: column;
-            /* justify-content: center; */
+            justify-content: center;
             align-items: center;
-            height: 100%;
-            background-attachment: fixed;
+            min-height: 100vh;
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-size: cover;
+            /* background-attachment: fixed; */
 
             background: radial-gradient(ellipse at -15% -10%,rgb(91, 211, 247,.7) 10%,rgba(239, 166, 206, 0.18) 40%,rgba(12, 67, 247, 0.28) 100%);
             transition: .5s all;
@@ -21,7 +29,7 @@
                 -webkit-background-clip: text;
                 color: transparent;
                 background-image: url("https://images.unsplash.com/photo-1541701494587-cb58502866ab?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
-                
+            
             }
            
             input{
@@ -72,7 +80,31 @@
                 box-shadow: 5px 10px 20px rgb(255, 0, 34);
             }
            }
+           .list{
+            display: flex;
+            /* justify-content: space-between; */
+            align-items: center;
+            font-size: 1.1rem;
+            /* font-weight: lighter; */
+            margin: 1rem 0;
+            .span2{
+                flex-basis: 65%; 
+                margin-left: 1rem;
+                width: 100%;
+                overflow: hidden;
 
+            }
+            .span1{
+                flex-basis: 35%;
+                margin-left: 1rem;
+                width: 100%;
+            }
+           }
+           .list:hover{
+            background-color: rgba(1, 138, 207, 0.281);
+            color: rgb(38, 0, 255);
+            box-shadow: 5px 10px 20px rgba(255, 0, 34, 0.226);
+            }
         }
     </style>
     <meta charset="UTF-8">
@@ -89,11 +121,11 @@
          <label>Enter Your Original URL</label><br />
          <input type="text"
          name="url" placeholder="https://example.com" required class="input">
-         <div class="submit-btn"><a href="/url"><button type="submit">Generate </button></a></div>
+         <div class="submit-btn"><a href="/url"><button type="submit">Generate</button></a></div>
      </form>
      <ul>
         <% urls.forEach(function(url) { %>
-           <li> ShortId:<%= url.shortId %>&nbsp;&nbsp; Redirect To:<a href="<%= url.redirectURL %>"><%= url.redirectURL %></a></li>
+           <li class="list"><span class="span1">Short Id: <b><%= url.shortId %></b></span><span class="span2">link:<a target="_blank" href="<%= url.redirectURL %>"><%= "http://localhost:8001/" + url.shortId %></a></span></li>
         <% }); %> 
        </ul>
     </div>

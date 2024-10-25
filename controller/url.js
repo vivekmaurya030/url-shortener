@@ -11,8 +11,9 @@ await URL.create({
     visitedHistory: [],
     createdBy: req.user._id,
 })
-return res.render("home",{
-    id: shortID,
+const urls = await URL.find();
+return res.render('home',{
+    urls: urls
 });
 };
 
@@ -27,6 +28,7 @@ return res.render("home",{
 //     } });
 //     res.redirect(URL.redirectURL)
 // }
+
 
 async function handleGetAnalytics(req,res){
     const shortId = req.params.shortId;
