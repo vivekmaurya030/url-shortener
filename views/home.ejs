@@ -125,7 +125,7 @@
      </form>
      <ul>
         <% urls.forEach(function(url) { %>
-           <li class="list"><span class="span1">Short Id: <b><%= url.shortId %></b></span><span class="span2">link:<a target="_blank" href="<%= url.redirectURL %>"><%= "http://localhost:${process.env.PORT}/" + url.shortId %></a></span></li>
+           <li class="list"><span class="span1">Short Id: <b><%= url.shortId %></b></span><span class="span2">link:<a target="_blank" href="<%= url.redirectURL %>"><%= "http://localhost:8001/" + url.shortId %></a></span></li>
         <% }); %> 
        </ul>
     </div>
