@@ -1,11 +1,15 @@
 {
+  "homepage": "https://vivekmaurya030.github.io/url-shortener",
   "name": "urlshortner",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon index"
+    "build": "echo 'No build step for this project'",
+    "start": "nodemon index",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "author": "",
   "license": "ISC",
@@ -17,5 +21,8 @@
     "nodemon": "^3.1.0",
     "shortid": "^2.2.16",
     "uuid": "^9.0.1"
+  },
+  "devDependencies": {
+    "gh-pages": "^6.2.0"
   }
 }

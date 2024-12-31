@@ -11,7 +11,7 @@ await URL.create({
     visitedHistory: [],
     createdBy: req.user._id,
 })
-const urls = await URL.find();
+const urls = await URL.find({createdBy: req.user._id});
 return res.render('home',{
     urls: urls
 });
